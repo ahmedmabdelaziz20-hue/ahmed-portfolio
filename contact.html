@@ -1,32 +1,85 @@
-<form class="contact-form" onsubmit="sendWhatsApp(event)">
 
-    <input type="text" id="name" placeholder="Your Name" required>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Ahmed Abdelaziz</title>
 
-    <input type="email" id="email" placeholder="Your Email" required>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <textarea id="message" placeholder="Your Message" required></textarea>
+<body>
 
-    <button type="submit">Send Message</button>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Ahmed Abdelaziz</a>
+        <a href="index.html" class="nav-link">Home</a>
+    </nav>
 
-</form>
+    <section class="contact-section">
 
-<script>
-function sendWhatsApp(event) {
-    event.preventDefault();
+        <div class="contact-container">
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+            <h1>Contact Me</h1>
+            <p class="contact-description">
+                Have a project or an inquiry? Feel free to contact me.
+            </p>
 
-    const phone = "201026331152";
+            <form id="contactForm" class="contact-form">
 
-    const text = `New message from your portfolio:
-Name: ${name}
-Email: ${email}
-Message: ${message}`;
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
 
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
 
-    window.open(url, "_blank");
-}
-</script>
+                <textarea
+                    id="message"
+                    placeholder="Your Message"
+                    rows="6"
+                    required
+                ></textarea>
+
+                <button type="submit">Send Message via WhatsApp</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const phone = "201026331152";
+
+            const whatsappMessage =
+                "New Contact Message from Portfolio\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Message: " + message;
+
+            const whatsappURL =
+                "https://wa.me/" + phone +
+                "?text=" + encodeURIComponent(whatsappMessage);
+
+            window.open(whatsappURL, "_blank");
+
+        });
+    </script>
+
+</body>
+</html>
