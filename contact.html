@@ -1,102 +1,32 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Ahmed Abdelaziz</title>
+<form class="contact-form" onsubmit="sendWhatsApp(event)">
 
-    <style>
-        body {
-            background-color:  #141c30;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            padding: 30px;
-        }
+    <input type="text" id="name" placeholder="Your Name" required>
 
-        a {
-            color: #2cb9f6;
-            text-decoration: none;
-            margin-right: 10px;
-        }
+    <input type="email" id="email" placeholder="Your Email" required>
 
-        h1 {
-            color: #2cb9f6;
-        }
+    <textarea id="message" placeholder="Your Message" required></textarea>
 
-        form {
-            background-color: #142c40;
-            padding: 25px;
-            width: 350px;
-            border-radius: 10px;
-        }
+    <button type="submit">Send Message</button>
 
-        input, select, textarea {
-            background-color: #203b52;
-            color: white;
-            border: 1px solid #00a6b5;
-            padding: 10px;
-            margin-top: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+</form>
 
-        input[type="checkbox"] {
-            width: auto;
-        }
+<script>
+function sendWhatsApp(event) {
+    event.preventDefault();
 
-        button {
-            background-color: #2cb9f6;
-            color: #0b1b2b;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
-</head>
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-<body>
+    const phone = "201XXXXXXXXX";
 
-    <a href="index.html">Home</a> |
-    <a href="contact.html">Contact Me</a>
+    const text = `New message from your portfolio:
+Name: ${name}
+Email: ${email}
+Message: ${message}`;
 
-    <h1>Contact Me</h1>
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
-    <form>
-
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name"
-               placeholder="Write your name" required>
-        <br><br>
-
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email"
-               placeholder="your@email.com" required>
-        <br><br>
-
-        <label for="source">How did you find me?</label><br>
-        <select id="source" name="source">
-            <option value="friend">A friend</option>
-            <option value="Youtube">Youtube</option>
-            <option value="Facebook">Facebook</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="other">Other</option>
-        </select>
-        <br><br>
-
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message"
-                  rows="5"
-                  placeholder="Write your message here..."
-                  required></textarea>
-        <br><br>
-
-        <input type="checkbox" id="news" name="news">
-        <label for="news">Send me news</label>
-        <br><br>
-
-        <button type="submit">Send</button>
-
-    </form>
-
-</body>
-</html>
+    window.open(url, "_blank");
+}
+</script>
