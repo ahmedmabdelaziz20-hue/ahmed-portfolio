@@ -1,0 +1,102 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Ahmed Abdelaziz</title>
+
+    <style>
+        body {
+            background-color:  #141c30;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        a {
+            color: #2cb9f6;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        h1 {
+            color: #2cb9f6;
+        }
+
+        form {
+            background-color: #142c40;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        input, select, textarea {
+            background-color: #203b52;
+            color: white;
+            border: 1px solid #00a6b5;
+            padding: 10px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            background-color: #2cb9f6;
+            color: #0b1b2b;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html">Home</a> |
+    <a href="contact.html">Contact Me</a>
+
+    <h1>Contact Me</h1>
+
+    <form>
+
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"
+               placeholder="Write your name" required>
+        <br><br>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email"
+               placeholder="your@email.com" required>
+        <br><br>
+
+        <label for="source">How did you find me?</label><br>
+        <select id="source" name="source">
+            <option value="friend">A friend</option>
+            <option value="Youtube">Youtube</option>
+            <option value="Facebook">Facebook</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message"
+                  rows="5"
+                  placeholder="Write your message here..."
+                  required></textarea>
+        <br><br>
+
+        <input type="checkbox" id="news" name="news">
+        <label for="news">Send me news</label>
+        <br><br>
+
+        <button type="submit">Send</button>
+
+    </form>
+
+</body>
+</html>
